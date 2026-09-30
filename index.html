@@ -1,207 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Personal Computer</title>
 
-<style>
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial, sans-serif;
-}
-
-body{
-    width:100vw;
-    height:100vh;
-    overflow:hidden;
-    background:#111;
-}
-
-
-/* 컴퓨터 화면 */
-
-.desktop{
-
-    width:100%;
-    height:100%;
-
-    background:
-    linear-gradient(
-        rgba(0,0,0,.35),
-        rgba(0,0,0,.45)
-    ),
-    url("https://images.unsplash.com/photo-1531058020387-3be344556be6");
-
-    background-size:cover;
-    background-position:center;
-
-    position:relative;
-
-}
-
-
-/* 앱 아이콘 */
-
-.apps{
-
-    padding:25px;
-
-    display:grid;
-
-    grid-template-columns:repeat(3,80px);
-
-    gap:25px;
-
-}
-
-
-.app{
-
-    color:white;
-
-    text-align:center;
-
-    cursor:pointer;
-
-    text-shadow:0 2px 5px black;
-
-}
-
-
-.app-icon{
-
-    width:55px;
-    height:55px;
-
-    margin:auto;
-
-    border-radius:15px;
-
-    background:rgba(255,255,255,.2);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:30px;
-
-    backdrop-filter:blur(5px);
-
-}
-
-
-.app-name{
-
-    margin-top:8px;
-
-    font-size:13px;
-
-}
-
-
-
-/* 아래 작업표시줄 */
-
-.taskbar{
-
-    position:absolute;
-
-    bottom:0;
-
-    left:0;
-
-    width:100%;
-
-    height:55px;
-
-    background:rgba(20,20,20,.8);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:white;
-
-}
-
-
-
-/* 창 */
-
-.window{
-
-    display:none;
-
-    position:absolute;
-
-    width:90%;
-
-    height:70%;
-
-    left:5%;
-
-    top:10%;
-
-    background:white;
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    box-shadow:0 10px 40px black;
-
-}
-
-
-/* 창 제목 */
-
-.window-title{
-
-    height:45px;
-
-    background:#222;
-
-    color:white;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:0 15px;
-
-}
-
-
-.close{
-
-    cursor:pointer;
-
-}
-
-
-
-/* 내용 */
-
-.window-content{
-
-    padding:20px;
-
-}
-
-
-
-</style>
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -212,220 +19,92 @@ body{
 <div class="desktop">
 
 
-<!-- 앱 -->
-
-<div class="apps">
+<div class="icon-area">
 
 
-<div class="app" onclick="openApp('message')">
+<div class="icon" onclick="openApp('apps/messages.html')">
 
-<div class="app-icon">
+<div class="icon-image">
 💬
 </div>
 
-<div class="app-name">
+<span>
 Messages
-</div>
+</span>
 
 </div>
 
 
 
-<div class="app" onclick="openApp('album')">
+<div class="icon" onclick="openApp('apps/album.html')">
 
-<div class="app-icon">
+<div class="icon-image">
 📷
 </div>
 
-<div class="app-name">
+<span>
 Album
-</div>
+</span>
 
 </div>
 
 
 
-<div class="app" onclick="openApp('browser')">
 
-<div class="app-icon">
+<div class="icon" onclick="openApp('apps/browser.html')">
+
+<div class="icon-image">
 🌐
 </div>
 
-<div class="app-name">
+<span>
 Browser
-</div>
+</span>
 
 </div>
 
 
 
-<div class="app" onclick="openApp('files')">
 
-<div class="app-icon">
+<div class="icon" onclick="openApp('apps/files.html')">
+
+<div class="icon-image">
 📁
 </div>
 
-<div class="app-name">
+<span>
 Files
-</div>
-
-</div>
-
-
-</div>
-
-
-
-
-
-<!-- 메시지 창 -->
-
-<div class="window" id="message">
-
-
-<div class="window-title">
-
-Messages
-
-<span class="close" onclick="closeApp('message')">
-✕
 </span>
 
 </div>
 
 
-<div class="window-content">
-
-아직 메시지가 없습니다.
 
 </div>
-
-
-</div>
-
-
-
-
-<!-- 사진첩 -->
-
-<div class="window" id="album">
-
-
-<div class="window-title">
-
-Album
-
-<span class="close" onclick="closeApp('album')">
-✕
-</span>
-
-</div>
-
-
-<div class="window-content">
-
-사진첩
-
-</div>
-
-
-</div>
-
-
-
-
-
-<!-- 브라우저 -->
-
-<div class="window" id="browser">
-
-
-<div class="window-title">
-
-Browser
-
-<span class="close" onclick="closeApp('browser')">
-✕
-</span>
-
-</div>
-
-
-<div class="window-content">
-
-인터넷
-
-</div>
-
-
-</div>
-
-
-
-
-
-<!-- 파일 -->
-
-<div class="window" id="files">
-
-
-<div class="window-title">
-
-Files
-
-<span class="close" onclick="closeApp('files')">
-✕
-</span>
-
-</div>
-
-
-<div class="window-content">
-
-폴더
-
-</div>
-
-
-</div>
-
-
 
 
 
 <div class="taskbar">
 
-🪟 Personal Computer
+<div>
+🪟
+</div>
+
+
+<div id="clock">
+00:00
+</div>
+
 
 </div>
 
 
-
 </div>
 
 
-
-
-<script>
-
-
-function openApp(id){
-
-document.getElementById(id).style.display="block";
-
-}
-
-
-
-function closeApp(id){
-
-document.getElementById(id).style.display="none";
-
-}
-
-
-</script>
+<script src="js/script.js"></script>
 
 
 </body>
+
 </html>
