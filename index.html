@@ -18,38 +18,49 @@
 
 <!-- 로그인 화면 -->
 
-<div id="login-screen">
+<div class="login-screen">
 
 
-    <div class="login-box">
+    <div class="login-card">
 
 
-        <div class="profile">
-
+        <div class="profile-circle">
             🌺
-
         </div>
 
 
-        <h2>
+        <h1>
             Character OS
+        </h1>
+
+
+        <h2>
+            Fujimoto PC
         </h2>
 
 
-        <p>
-            Welcome back
+        <p class="online">
+            ● Online
         </p>
 
 
         <input 
         type="password"
-        id="password"
         placeholder="Password">
 
 
-        <button onclick="login()">
-            Login
+        <button onclick="enterPC()">
+            Enter
         </button>
+
+
+        <div class="last">
+
+            Last login<br>
+            Hong Kong<br>
+            22:31
+
+        </div>
 
 
     </div>
@@ -60,101 +71,65 @@
 
 
 
-<!-- 바탕화면 -->
+<!-- 컴퓨터 화면 -->
 
 
-<div id="desktop" style="display:none;">
+<div class="computer" style="display:none;">
 
 
+    <div class="desktop-icon">
 
-    <div class="desktop-icons">
-
-
-        <div class="desktop-icon">
-
-            💬
-
-            <span>
+        💬
+        <span>
             Messages
-            </span>
-
-        </div>
-
-
-
-        <div class="desktop-icon">
-
-            📷
-
-            <span>
-            Photos
-            </span>
-
-        </div>
-
-
-
-        <div class="desktop-icon">
-
-            🌐
-
-            <span>
-            Browser
-            </span>
-
-        </div>
-
-
-
-        <div class="desktop-icon">
-
-            📁
-
-            <span>
-            Files
-            </span>
-
-        </div>
-
+        </span>
 
     </div>
 
 
+    <div class="desktop-icon">
+
+        📷
+        <span>
+            Photos
+        </span>
+
+    </div>
 
 
-    <!-- 작업표시줄 -->
+    <div class="desktop-icon">
+
+        📁
+        <span>
+            Files
+        </span>
+
+    </div>
+
 
 
     <div class="taskbar">
 
 
-        <div class="start">
+        <div>
             ⊞
         </div>
 
 
-        <div class="apps">
-
-            💬
-            🌐
-            📁
-
+        <div>
+            💬 🌐 📁
         </div>
 
 
         <div id="clock">
-
             00:00
-
         </div>
 
 
     </div>
 
 
-
 </div>
-
 
 
 
