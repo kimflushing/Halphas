@@ -1,5 +1,5 @@
 /* =========================
-   기본 설정
+   기본
 ========================= */
 
 *{
@@ -28,42 +28,30 @@ body{
 
 .desktop{
 
-    width:100vw;
-    height:100vh;
+    width:100%;
+    height:100%;
 
-    /* 원하는 배경 넣기 */
-    background-image:url("../img/wallpaper.jpg");
+    position:relative;
+
+
+    background-image:
+    linear-gradient(
+        rgba(0,0,0,.25),
+        rgba(0,0,0,.35)
+    ),
+    url("../img/wallpaper.jpg");
+
 
     background-size:cover;
 
     background-position:center;
-
-    position:relative;
-
-}
-
-
-
-/* 배경 어둡게 */
-
-.desktop::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:rgba(0,0,0,0.15);
-
-    pointer-events:none;
 
 }
 
 
 
 /* =========================
-   아이콘 영역
+   아이콘
 ========================= */
 
 
@@ -71,7 +59,7 @@ body{
 
     position:absolute;
 
-    top:25px;
+    top:30px;
 
     left:25px;
 
@@ -81,68 +69,74 @@ body{
 
     gap:25px;
 
-    z-index:2;
+    z-index:3;
 
 }
 
 
 
-
 .icon{
 
-    width:80px;
-
-    text-align:center;
+    width:85px;
 
     color:white;
+
+    text-align:center;
 
     cursor:pointer;
 
     user-select:none;
 
     text-shadow:
-    0 2px 5px black;
+    0 2px 6px black;
+
+    transition:.2s;
 
 }
-
 
 
 .icon:hover{
 
-    transform:scale(1.05);
+    transform:scale(1.08);
 
 }
 
 
 
-.icon-image{
+.icon-img{
 
     width:55px;
 
     height:55px;
 
+
     margin:auto;
 
-    border-radius:14px;
+
+    border-radius:15px;
 
 
     display:flex;
 
-    justify-content:center;
-
     align-items:center;
+
+    justify-content:center;
 
 
     font-size:30px;
 
 
-    background:rgba(255,255,255,0.18);
+    background:
+
+    rgba(255,255,255,.2);
+
 
     backdrop-filter:blur(10px);
 
 
     box-shadow:
-    0 5px 15px rgba(0,0,0,0.3);
+
+    0 8px 20px rgba(0,0,0,.4);
 
 
 }
@@ -162,71 +156,215 @@ body{
 
 
 /* =========================
-   작업표시줄
+   위젯
 ========================= */
 
 
-.taskbar{
+.widget{
+
 
     position:absolute;
-
-    bottom:0;
-
-    left:0;
-
-
-    width:100%;
-
-    height:55px;
 
 
     background:
 
-    rgba(30,30,30,0.75);
+    rgba(255,255,255,.15);
 
 
-    backdrop-filter:blur(15px);
+    backdrop-filter:blur(18px);
 
 
-    display:flex;
+    border:
 
-    justify-content:space-between;
-
-    align-items:center;
+    1px solid rgba(255,255,255,.2);
 
 
-    padding:0 20px;
+    border-radius:18px;
 
 
     color:white;
 
 
-    z-index:5;
+    padding:18px;
 
 
-    border-top:
+    z-index:2;
 
-    1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.35);
+
 
 }
 
 
 
-#clock{
+.widget h3{
 
     font-size:14px;
 
+    opacity:.8;
+
+    margin-bottom:10px;
+
 }
+
+
+
+/* 날씨 */
+
+.weather{
+
+    top:30px;
+
+    right:30px;
+
+    width:160px;
+
+}
+
+
+.weather strong{
+
+    font-size:45px;
+
+    font-weight:300;
+
+}
+
+
+
+/* 메모 */
+
+
+.memo{
+
+    right:30px;
+
+    bottom:140px;
+
+    width:180px;
+
+}
+
+
+
+.memo p{
+
+    font-size:13px;
+
+    margin:8px 0;
+
+}
+
+
+
+/* 최근 파일 */
+
+
+.recent{
+
+    left:150px;
+
+    bottom:100px;
+
+    width:200px;
+
+}
+
+
+
+.recent p{
+
+    margin:8px 0;
+
+    font-size:13px;
+
+}
+
+
+
+
+
+/* =========================
+   사진 액자
+========================= */
+
+
+.photo-frame{
+
+
+    position:absolute;
+
+
+    right:40px;
+
+    top:180px;
+
+
+    width:190px;
+
+
+    background:#eee;
+
+
+    padding:12px;
+
+
+    color:#333;
+
+
+    transform:rotate(3deg);
+
+
+    box-shadow:
+
+    0 15px 35px black;
+
+
+    z-index:2;
+
+}
+
+
+
+.photo-frame img{
+
+    width:100%;
+
+    height:160px;
+
+
+    object-fit:cover;
+
+}
+
+
+
+.photo-frame p{
+
+    text-align:center;
+
+    margin-top:10px;
+
+    font-family:serif;
+
+}
+
+
 
 
 
 /* =========================
    앱 창
-   (나중에 iframe용)
 ========================= */
 
 
-.app-window{
+.window{
+
+
+    display:none;
 
 
     position:absolute;
@@ -240,9 +378,9 @@ body{
     height:70%;
 
 
-    left:50%;
-
     top:50%;
+
+    left:50%;
 
 
     transform:
@@ -260,25 +398,28 @@ body{
     overflow:hidden;
 
 
+    z-index:10;
+
+
     box-shadow:
 
-    0 20px 50px rgba(0,0,0,0.5);
-
+    0 20px 50px rgba(0,0,0,.5);
 
 
 }
 
 
 
-/* 창 제목 */
-
-.window-header{
+.window-head{
 
 
     height:45px;
 
 
-    background:#f2f2f2;
+    background:#202020;
+
+
+    color:white;
 
 
     display:flex;
@@ -293,78 +434,131 @@ body{
     padding:0 15px;
 
 
-
-    font-weight:bold;
-
-
 }
 
 
 
-.window-buttons{
+.window-head button{
 
 
-    display:flex;
+    border:none;
 
-    gap:8px;
+    background:#ff5f57;
 
-}
-
-
-
-.window-buttons span{
+    color:white;
 
 
-    width:13px;
+    width:25px;
 
-    height:13px;
+    height:25px;
+
 
     border-radius:50%;
 
 
-}
-
-
-
-.close{
-
-    background:#ff5f57;
+    cursor:pointer;
 
 }
 
 
 
-.min{
+.window-body{
 
-    background:#febc2e;
+    padding:20px;
 
-}
-
-
-
-.max{
-
-    background:#28c840;
+    color:#222;
 
 }
 
 
-
-/* 창 내용 */
-
-
-.window-content{
-
-    height:calc(100% - 45px);
-
-    overflow:auto;
-
-}
 
 
 
 /* =========================
-   모바일 대응
+   작업표시줄
+========================= */
+
+
+.taskbar{
+
+
+    position:absolute;
+
+
+    bottom:0;
+
+
+    left:0;
+
+
+    width:100%;
+
+
+    height:58px;
+
+
+    background:
+
+    rgba(20,20,20,.75);
+
+
+    backdrop-filter:blur(20px);
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:space-between;
+
+
+    padding:0 20px;
+
+
+    color:white;
+
+
+    z-index:20;
+
+
+}
+
+
+
+.start{
+
+    font-size:28px;
+
+}
+
+
+
+.pinned{
+
+    display:flex;
+
+    gap:18px;
+
+    font-size:22px;
+
+}
+
+
+
+#clock{
+
+    font-size:14px;
+
+}
+
+
+
+
+
+/* =========================
+   모바일
 ========================= */
 
 
@@ -373,38 +567,49 @@ body{
 
     .icon-area{
 
-        top:20px;
-
         left:15px;
+
+        top:20px;
 
         gap:20px;
 
     }
 
 
-    .icon{
+    .weather{
 
-        width:70px;
+        right:15px;
 
-    }
+        top:20px;
 
-
-    .icon-image{
-
-        width:50px;
-
-        height:50px;
-
-        font-size:26px;
+        width:140px;
 
     }
 
 
-    .taskbar{
+    .photo-frame{
 
-        height:50px;
+        right:15px;
 
-        padding:0 15px;
+        top:170px;
+
+        width:150px;
+
+    }
+
+
+    .recent{
+
+        display:none;
+
+    }
+
+
+    .memo{
+
+        right:15px;
+
+        bottom:90px;
 
     }
 
