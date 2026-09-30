@@ -1,139 +1,95 @@
+/* 전체 설정 */
+
 *{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-
-font-family:"Segoe UI",sans-serif;
-
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI","Noto Sans KR",sans-serif;
 }
-
 
 
 body{
 
-width:100vw;
-height:100vh;
+    width:100vw;
+    height:100vh;
 
-overflow:hidden;
-
-}
-
-
-
-/* 로그인 */
-
-
-#login-screen{
-
-width:100%;
-height:100%;
-
-background:
-linear-gradient(
-rgba(0,0,0,.4),
-rgba(0,0,0,.6)
-),
-url("../img/wallpaper.jpg");
-
-
-background-size:cover;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-color:white;
+    overflow:hidden;
 
 }
 
 
 
-.login-box{
-
-width:300px;
-
-padding:40px;
-
-background:
-
-rgba(255,255,255,.15);
+/* =====================
+   로그인 화면
+===================== */
 
 
-backdrop-filter:blur(20px);
+.login-screen{
 
-border-radius:20px;
-
-text-align:center;
-
-}
+    width:100%;
+    height:100%;
 
 
+    display:flex;
 
-.profile{
+    justify-content:center;
 
-font-size:70px;
-
-}
-
+    align-items:center;
 
 
-.login-box input{
+    background:
 
-width:100%;
+    linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.65)
+    ),
 
-margin-top:25px;
-
-padding:12px;
-
-border-radius:10px;
-
-border:none;
-
-}
+    url("../img/wallpaper.jpg");
 
 
+    background-size:cover;
 
-.login-box button{
-
-margin-top:15px;
-
-width:100%;
-
-padding:12px;
-
-border:none;
-
-border-radius:10px;
-
-cursor:pointer;
+    background-position:center;
 
 }
 
 
 
 
-
-/* 바탕화면 */
-
-
-#desktop{
-
-width:100%;
-height:100%;
+.login-card{
 
 
-background:
-
-url("../img/wallpaper.jpg");
+    width:340px;
 
 
-background-size:cover;
+    padding:45px 35px;
 
 
-position:relative;
+    text-align:center;
+
+
+    color:white;
+
+
+    background:
+
+    rgba(255,255,255,.12);
+
+
+    backdrop-filter:blur(25px);
+
+
+    border-radius:25px;
+
+
+    border:
+
+    1px solid rgba(255,255,255,.2);
+
+
+    box-shadow:
+
+    0 20px 60px rgba(0,0,0,.5);
 
 
 }
@@ -141,34 +97,237 @@ position:relative;
 
 
 
+/* 프로필 */
 
-.desktop-icons{
 
-padding:30px;
+.profile-circle{
 
-display:flex;
 
-flex-direction:column;
+    width:110px;
 
-gap:25px;
+    height:110px;
+
+
+    margin:0 auto 20px;
+
+
+    border-radius:50%;
+
+
+    background:
+
+    rgba(255,255,255,.2);
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    font-size:60px;
+
 
 }
+
+
+
+.login-card h1{
+
+    font-size:25px;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.login-card h2{
+
+    font-size:16px;
+
+    font-weight:400;
+
+    opacity:.8;
+
+}
+
+
+
+.online{
+
+    margin-top:15px;
+
+    color:#7dff9a;
+
+    font-size:13px;
+
+}
+
+
+
+
+/* 비밀번호 */
+
+
+.login-card input{
+
+
+    margin-top:30px;
+
+
+    width:100%;
+
+
+    height:45px;
+
+
+    border-radius:15px;
+
+
+    border:
+
+    1px solid rgba(255,255,255,.3);
+
+
+    background:
+
+    rgba(0,0,0,.3);
+
+
+    color:white;
+
+
+    padding:0 15px;
+
+
+    font-size:15px;
+
+
+}
+
+
+
+.login-card input::placeholder{
+
+    color:#ddd;
+
+}
+
+
+
+
+/* 버튼 */
+
+
+.login-card button{
+
+
+    margin-top:15px;
+
+
+    width:100%;
+
+
+    height:45px;
+
+
+    border:none;
+
+
+    border-radius:15px;
+
+
+    cursor:pointer;
+
+
+    font-size:15px;
+
+
+}
+
+
+
+
+
+.last{
+
+
+    margin-top:25px;
+
+
+    font-size:12px;
+
+
+    opacity:.6;
+
+
+    line-height:1.6;
+
+
+}
+
+
+
+
+
+/* =====================
+   컴퓨터 화면
+===================== */
+
+
+.computer{
+
+
+    width:100%;
+
+    height:100%;
+
+
+    position:relative;
+
+
+    background:
+
+    url("../img/wallpaper.jpg");
+
+
+    background-size:cover;
+
+
+}
+
 
 
 
 .desktop-icon{
 
-width:80px;
 
-color:white;
+    position:relative;
 
-text-align:center;
 
-font-size:35px;
+    top:30px;
 
-text-shadow:0 2px 5px black;
+    left:30px;
 
-cursor:pointer;
+
+    width:80px;
+
+
+    color:white;
+
+
+    text-align:center;
+
+
+    font-size:35px;
+
+
+    text-shadow:
+
+    0 2px 5px black;
+
 
 }
 
@@ -176,9 +335,12 @@ cursor:pointer;
 
 .desktop-icon span{
 
-display:block;
 
-font-size:13px;
+    display:block;
+
+
+    font-size:13px;
+
 
 }
 
@@ -191,58 +353,43 @@ font-size:13px;
 
 .taskbar{
 
-position:absolute;
 
-bottom:0;
-
-width:100%;
-
-height:55px;
+    position:absolute;
 
 
-background:
-
-rgba(20,20,20,.8);
+    bottom:0;
 
 
-backdrop-filter:blur(20px);
+    left:0;
 
 
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
+    width:100%;
 
 
-padding:0 20px;
+    height:55px;
 
 
-color:white;
+    background:
+
+    rgba(20,20,20,.8);
 
 
-}
+    backdrop-filter:blur(15px);
 
 
-
-.start{
-
-font-size:25px;
-
-}
+    display:flex;
 
 
-
-.apps{
-
-font-size:22px;
-
-}
+    justify-content:space-between;
 
 
+    align-items:center;
 
-#clock{
 
-font-size:14px;
+    padding:0 20px;
+
+
+    color:white;
+
 
 }
