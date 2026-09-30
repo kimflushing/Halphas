@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Personal Computer</title>
+<title>Character OS</title>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -16,52 +16,43 @@
 <body>
 
 
-<div class="desktop">
+<!-- 로그인 화면 -->
+
+<div id="login-screen">
 
 
-<!-- 앱 아이콘 -->
-
-<div class="icon-area">
+    <div class="login-box">
 
 
-<div class="icon" onclick="openApp('messages')">
+        <div class="profile">
 
-<div class="icon-img">💬</div>
+            🌺
 
-<span>Messages</span>
-
-</div>
+        </div>
 
 
-
-<div class="icon" onclick="openApp('album')">
-
-<div class="icon-img">📷</div>
-
-<span>Album</span>
-
-</div>
+        <h2>
+            Character OS
+        </h2>
 
 
-
-<div class="icon" onclick="openApp('browser')">
-
-<div class="icon-img">🌐</div>
-
-<span>Browser</span>
-
-</div>
+        <p>
+            Welcome back
+        </p>
 
 
+        <input 
+        type="password"
+        id="password"
+        placeholder="Password">
 
-<div class="icon" onclick="openApp('files')">
 
-<div class="icon-img">📁</div>
+        <button onclick="login()">
+            Login
+        </button>
 
-<span>Files</span>
 
-</div>
-
+    </div>
 
 
 </div>
@@ -69,221 +60,102 @@
 
 
 
+<!-- 바탕화면 -->
 
-<!-- 날씨 위젯 -->
 
+<div id="desktop" style="display:none;">
 
-<div class="widget weather">
 
-<h3>Hong Kong</h3>
 
-<strong>18°</strong>
+    <div class="desktop-icons">
 
-<p>
-Wednesday<br>
-September 30
-</p>
 
-</div>
+        <div class="desktop-icon">
 
+            💬
 
+            <span>
+            Messages
+            </span>
 
+        </div>
 
 
-<!-- 사진 액자 -->
 
+        <div class="desktop-icon">
 
-<div class="photo-frame">
+            📷
 
-<img src="img/couple.jpg">
+            <span>
+            Photos
+            </span>
 
-<p>
-Memory
-</p>
+        </div>
 
-</div>
 
 
+        <div class="desktop-icon">
 
+            🌐
 
+            <span>
+            Browser
+            </span>
 
-<!-- 메모 -->
+        </div>
 
 
-<div class="widget memo">
 
-<h3>Notes</h3>
+        <div class="desktop-icon">
 
-<p>□ Flowers</p>
+            📁
 
-<p>□ Dinner</p>
+            <span>
+            Files
+            </span>
 
-<p>□ Tsubaki</p>
+        </div>
 
-</div>
 
+    </div>
 
 
 
 
-<!-- 최근 파일 -->
+    <!-- 작업표시줄 -->
 
 
-<div class="widget recent">
+    <div class="taskbar">
 
-<h3>Recent</h3>
 
-<p>📄 diary.txt</p>
+        <div class="start">
+            ⊞
+        </div>
 
-<p>📷 hongkong.jpg</p>
 
-<p>🎵 playlist.mp3</p>
+        <div class="apps">
 
-</div>
+            💬
+            🌐
+            📁
 
+        </div>
 
 
+        <div id="clock">
 
+            00:00
 
-<!-- 앱 창 -->
+        </div>
 
 
-<div class="window" id="messages">
+    </div>
 
-<div class="window-head">
-
-Messages
-
-<button onclick="closeApp('messages')">
-✕
-</button>
-
-</div>
-
-
-<div class="window-body">
-
-준비 중
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="window" id="album">
-
-<div class="window-head">
-
-Album
-
-<button onclick="closeApp('album')">
-✕
-</button>
-
-</div>
-
-
-<div class="window-body">
-
-사진첩
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="window" id="browser">
-
-<div class="window-head">
-
-Browser
-
-<button onclick="closeApp('browser')">
-✕
-</button>
-
-</div>
-
-
-<div class="window-body">
-
-Browser
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="window" id="files">
-
-<div class="window-head">
-
-Files
-
-<button onclick="closeApp('files')">
-✕
-</button>
-
-</div>
-
-
-<div class="window-body">
-
-Files
-
-</div>
-
-</div>
-
-
-
-
-
-<!-- 작업표시줄 -->
-
-
-<div class="taskbar">
-
-
-<div class="start">
-
-⊞
-
-</div>
-
-
-<div class="pinned">
-
-🔍
-💬
-🌐
-📁
-
-</div>
-
-
-<div id="clock">
-
-00:00
-
-</div>
 
 
 </div>
 
 
-
-
-</div>
 
 
 <script src="js/script.js"></script>
