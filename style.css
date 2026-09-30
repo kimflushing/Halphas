@@ -1,285 +1,114 @@
-/* =========================
-   기본
-========================= */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Segoe UI","Noto Sans KR",sans-serif;
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+font-family:"Segoe UI",sans-serif;
+
 }
+
 
 
 body{
 
-    width:100vw;
-    height:100vh;
+width:100vw;
+height:100vh;
 
-    overflow:hidden;
-
-}
-
-
-
-/* =========================
-   바탕화면
-========================= */
-
-
-.desktop{
-
-    width:100%;
-    height:100%;
-
-    position:relative;
-
-
-    background-image:
-    linear-gradient(
-        rgba(0,0,0,.25),
-        rgba(0,0,0,.35)
-    ),
-    url("../img/wallpaper.jpg");
-
-
-    background-size:cover;
-
-    background-position:center;
+overflow:hidden;
 
 }
 
 
 
-/* =========================
-   아이콘
-========================= */
+/* 로그인 */
 
 
-.icon-area{
+#login-screen{
 
-    position:absolute;
+width:100%;
+height:100%;
 
-    top:30px;
-
-    left:25px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:25px;
-
-    z-index:3;
-
-}
+background:
+linear-gradient(
+rgba(0,0,0,.4),
+rgba(0,0,0,.6)
+),
+url("../img/wallpaper.jpg");
 
 
+background-size:cover;
 
-.icon{
+display:flex;
 
-    width:85px;
+justify-content:center;
 
-    color:white;
+align-items:center;
 
-    text-align:center;
-
-    cursor:pointer;
-
-    user-select:none;
-
-    text-shadow:
-    0 2px 6px black;
-
-    transition:.2s;
-
-}
-
-
-.icon:hover{
-
-    transform:scale(1.08);
+color:white;
 
 }
 
 
 
-.icon-img{
+.login-box{
 
-    width:55px;
+width:300px;
 
-    height:55px;
+padding:40px;
 
+background:
 
-    margin:auto;
-
-
-    border-radius:15px;
+rgba(255,255,255,.15);
 
 
-    display:flex;
+backdrop-filter:blur(20px);
 
-    align-items:center;
+border-radius:20px;
 
-    justify-content:center;
-
-
-    font-size:30px;
-
-
-    background:
-
-    rgba(255,255,255,.2);
-
-
-    backdrop-filter:blur(10px);
-
-
-    box-shadow:
-
-    0 8px 20px rgba(0,0,0,.4);
-
+text-align:center;
 
 }
 
 
 
-.icon span{
+.profile{
 
-    display:block;
-
-    margin-top:8px;
-
-    font-size:13px;
+font-size:70px;
 
 }
 
 
 
-/* =========================
-   위젯
-========================= */
+.login-box input{
 
+width:100%;
 
-.widget{
+margin-top:25px;
 
+padding:12px;
 
-    position:absolute;
+border-radius:10px;
 
-
-    background:
-
-    rgba(255,255,255,.15);
-
-
-    backdrop-filter:blur(18px);
-
-
-    border:
-
-    1px solid rgba(255,255,255,.2);
-
-
-    border-radius:18px;
-
-
-    color:white;
-
-
-    padding:18px;
-
-
-    z-index:2;
-
-
-    box-shadow:
-
-    0 10px 30px rgba(0,0,0,.35);
-
+border:none;
 
 }
 
 
 
-.widget h3{
+.login-box button{
 
-    font-size:14px;
+margin-top:15px;
 
-    opacity:.8;
+width:100%;
 
-    margin-bottom:10px;
+padding:12px;
 
-}
+border:none;
 
+border-radius:10px;
 
-
-/* 날씨 */
-
-.weather{
-
-    top:30px;
-
-    right:30px;
-
-    width:160px;
-
-}
-
-
-.weather strong{
-
-    font-size:45px;
-
-    font-weight:300;
-
-}
-
-
-
-/* 메모 */
-
-
-.memo{
-
-    right:30px;
-
-    bottom:140px;
-
-    width:180px;
-
-}
-
-
-
-.memo p{
-
-    font-size:13px;
-
-    margin:8px 0;
-
-}
-
-
-
-/* 최근 파일 */
-
-
-.recent{
-
-    left:150px;
-
-    bottom:100px;
-
-    width:200px;
-
-}
-
-
-
-.recent p{
-
-    margin:8px 0;
-
-    font-size:13px;
+cursor:pointer;
 
 }
 
@@ -287,68 +116,25 @@ body{
 
 
 
-/* =========================
-   사진 액자
-========================= */
+/* 바탕화면 */
 
 
-.photo-frame{
+#desktop{
+
+width:100%;
+height:100%;
 
 
-    position:absolute;
+background:
+
+url("../img/wallpaper.jpg");
 
 
-    right:40px;
-
-    top:180px;
+background-size:cover;
 
 
-    width:190px;
+position:relative;
 
-
-    background:#eee;
-
-
-    padding:12px;
-
-
-    color:#333;
-
-
-    transform:rotate(3deg);
-
-
-    box-shadow:
-
-    0 15px 35px black;
-
-
-    z-index:2;
-
-}
-
-
-
-.photo-frame img{
-
-    width:100%;
-
-    height:160px;
-
-
-    object-fit:cover;
-
-}
-
-
-
-.photo-frame p{
-
-    text-align:center;
-
-    margin-top:10px;
-
-    font-family:serif;
 
 }
 
@@ -356,117 +142,43 @@ body{
 
 
 
-/* =========================
-   앱 창
-========================= */
+.desktop-icons{
 
+padding:30px;
 
-.window{
+display:flex;
 
+flex-direction:column;
 
-    display:none;
-
-
-    position:absolute;
-
-
-    width:90%;
-
-    max-width:500px;
-
-
-    height:70%;
-
-
-    top:50%;
-
-    left:50%;
-
-
-    transform:
-
-    translate(-50%,-50%);
-
-
-
-    background:white;
-
-
-    border-radius:18px;
-
-
-    overflow:hidden;
-
-
-    z-index:10;
-
-
-    box-shadow:
-
-    0 20px 50px rgba(0,0,0,.5);
-
+gap:25px;
 
 }
 
 
 
-.window-head{
+.desktop-icon{
 
+width:80px;
 
-    height:45px;
+color:white;
 
+text-align:center;
 
-    background:#202020;
+font-size:35px;
 
+text-shadow:0 2px 5px black;
 
-    color:white;
-
-
-    display:flex;
-
-
-    justify-content:space-between;
-
-
-    align-items:center;
-
-
-    padding:0 15px;
-
+cursor:pointer;
 
 }
 
 
 
-.window-head button{
+.desktop-icon span{
 
+display:block;
 
-    border:none;
-
-    background:#ff5f57;
-
-    color:white;
-
-
-    width:25px;
-
-    height:25px;
-
-
-    border-radius:50%;
-
-
-    cursor:pointer;
-
-}
-
-
-
-.window-body{
-
-    padding:20px;
-
-    color:#222;
+font-size:13px;
 
 }
 
@@ -474,53 +186,39 @@ body{
 
 
 
-/* =========================
-   작업표시줄
-========================= */
+/* 작업표시줄 */
 
 
 .taskbar{
 
+position:absolute;
 
-    position:absolute;
+bottom:0;
 
+width:100%;
 
-    bottom:0;
-
-
-    left:0;
-
-
-    width:100%;
+height:55px;
 
 
-    height:58px;
+background:
+
+rgba(20,20,20,.8);
 
 
-    background:
-
-    rgba(20,20,20,.75);
+backdrop-filter:blur(20px);
 
 
-    backdrop-filter:blur(20px);
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
 
 
-    display:flex;
+padding:0 20px;
 
 
-    align-items:center;
-
-
-    justify-content:space-between;
-
-
-    padding:0 20px;
-
-
-    color:white;
-
-
-    z-index:20;
+color:white;
 
 
 }
@@ -529,19 +227,15 @@ body{
 
 .start{
 
-    font-size:28px;
+font-size:25px;
 
 }
 
 
 
-.pinned{
+.apps{
 
-    display:flex;
-
-    gap:18px;
-
-    font-size:22px;
+font-size:22px;
 
 }
 
@@ -549,70 +243,6 @@ body{
 
 #clock{
 
-    font-size:14px;
-
-}
-
-
-
-
-
-/* =========================
-   모바일
-========================= */
-
-
-@media(max-width:600px){
-
-
-    .icon-area{
-
-        left:15px;
-
-        top:20px;
-
-        gap:20px;
-
-    }
-
-
-    .weather{
-
-        right:15px;
-
-        top:20px;
-
-        width:140px;
-
-    }
-
-
-    .photo-frame{
-
-        right:15px;
-
-        top:170px;
-
-        width:150px;
-
-    }
-
-
-    .recent{
-
-        display:none;
-
-    }
-
-
-    .memo{
-
-        right:15px;
-
-        bottom:90px;
-
-    }
-
-
+font-size:14px;
 
 }
