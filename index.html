@@ -1,516 +1,431 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Personal Computer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Noto Sans KR',sans-serif;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
 }
-
-html,body{
-width:100%;
-height:100%;
-overflow:hidden;
-}
-
-/* 배경 */
 
 body{
-
-background-image:url("https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1600&q=80");
-
-background-size:cover;
-
-background-position:center;
-
-background-repeat:no-repeat;
-
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    background:#111;
 }
 
-/* 약간 어둡게 */
 
-body::before{
-
-content:"";
-
-position:fixed;
-
-left:0;
-
-top:0;
-
-width:100%;
-
-height:100%;
-
-background:rgba(0,0,0,.25);
-
-backdrop-filter:blur(2px);
-
-z-index:-1;
-
-}
-
-/* 데스크탑 */
+/* 컴퓨터 화면 */
 
 .desktop{
 
-width:100%;
+    width:100%;
+    height:100%;
 
-height:100%;
+    background:
+    linear-gradient(
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.45)
+    ),
+    url("https://images.unsplash.com/photo-1531058020387-3be344556be6");
 
-position:relative;
+    background-size:cover;
+    background-position:center;
 
-}
-
-/* 아이콘 */
-
-.icon{
-
-width:82px;
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-gap:8px;
-
-cursor:pointer;
-
-position:absolute;
-
-user-select:none;
+    position:relative;
 
 }
 
-.icon img{
 
-width:52px;
+/* 앱 아이콘 */
 
-height:52px;
+.apps{
 
-}
+    padding:25px;
 
-.icon span{
+    display:grid;
 
-font-size:13px;
+    grid-template-columns:repeat(3,80px);
 
-color:white;
-
-text-shadow:0 0 5px black;
-
-text-align:center;
+    gap:25px;
 
 }
 
-/* 위치 */
 
-#browser{
-top:30px;
-left:25px;
+.app{
+
+    color:white;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    text-shadow:0 2px 5px black;
+
 }
 
-#messages{
-top:145px;
-left:25px;
+
+.app-icon{
+
+    width:55px;
+    height:55px;
+
+    margin:auto;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.2);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    backdrop-filter:blur(5px);
+
 }
 
-#photos{
-top:260px;
-left:25px;
+
+.app-name{
+
+    margin-top:8px;
+
+    font-size:13px;
+
 }
 
-#notes{
-top:375px;
-left:25px;
-}
 
-#documents{
-top:490px;
-left:25px;
-}
 
-#trash{
-top:605px;
-left:25px;
-}
-/* ========================= */
-/* 작업표시줄 */
-/* ========================= */
+/* 아래 작업표시줄 */
 
 .taskbar{
 
-position:fixed;
+    position:absolute;
 
-bottom:0;
+    bottom:0;
 
-left:0;
+    left:0;
 
-width:100%;
+    width:100%;
 
-height:58px;
+    height:55px;
 
-background:rgba(28,28,28,.82);
+    background:rgba(20,20,20,.8);
 
-backdrop-filter:blur(20px);
+    display:flex;
 
-display:flex;
+    align-items:center;
 
-align-items:center;
+    justify-content:center;
 
-justify-content:space-between;
-
-padding:0 18px;
-
-border-top:1px solid rgba(255,255,255,.12);
+    color:white;
 
 }
 
-/* 시작 버튼 */
 
-.start{
 
-width:42px;
-
-height:42px;
-
-border-radius:12px;
-
-background:rgba(255,255,255,.08);
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:22px;
-
-color:white;
-
-cursor:pointer;
-
-transition:.2s;
-
-}
-
-.start:hover{
-
-background:rgba(255,255,255,.16);
-
-}
-
-/* 가운데 아이콘 */
-
-.task-icons{
-
-display:flex;
-
-gap:14px;
-
-align-items:center;
-
-}
-
-.task-icon{
-
-width:40px;
-
-height:40px;
-
-border-radius:12px;
-
-background:rgba(255,255,255,.08);
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:22px;
-
-color:white;
-
-cursor:pointer;
-
-transition:.2s;
-
-}
-
-.task-icon:hover{
-
-background:rgba(255,255,255,.15);
-
-}
-
-/* 시계 */
-
-.clock{
-
-color:white;
-
-font-size:14px;
-
-font-weight:500;
-
-}
-
-/* ========================= */
 /* 창 */
-/* ========================= */
 
 .window{
 
-position:absolute;
+    display:none;
 
-top:90px;
+    position:absolute;
 
-left:140px;
+    width:90%;
 
-width:340px;
+    height:70%;
 
-height:420px;
+    left:5%;
 
-background:#f6f6f6;
+    top:10%;
 
-border-radius:14px;
+    background:white;
 
-overflow:hidden;
+    border-radius:15px;
 
-display:none;
+    overflow:hidden;
 
-box-shadow:0 15px 40px rgba(0,0,0,.45);
-
-}
-
-/* 제목 */
-
-.window-top{
-
-height:46px;
-
-background:#e9e9e9;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:0 16px;
-
-font-weight:600;
+    box-shadow:0 10px 40px black;
 
 }
 
-/* 닫기 */
+
+/* 창 제목 */
+
+.window-title{
+
+    height:45px;
+
+    background:#222;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 15px;
+
+}
+
 
 .close{
 
-width:30px;
-
-height:30px;
-
-border-radius:8px;
-
-background:#ff4d4d;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-color:white;
-
-cursor:pointer;
+    cursor:pointer;
 
 }
+
+
 
 /* 내용 */
 
 .window-content{
 
-padding:18px;
-
-height:calc(100% - 46px);
-
-overflow:auto;
+    padding:20px;
 
 }
 
-/* 모바일 */
 
-@media(max-width:700px){
-
-.window{
-
-width:92%;
-
-left:4%;
-
-top:50px;
-
-height:70%;
-
-}
-
-.icon{
-
-transform:scale(.92);
-
-}
-
-}
 
 </style>
+
+</head>
+
+
 <body>
+
 
 <div class="desktop">
 
-    <!-- 아이콘 -->
 
-    <div class="icon" id="browser" onclick="openWindow('browserWindow')">
-        <img src="https://img.icons8.com/color/96/internet.png">
-        <span>Browser</span>
-    </div>
+<!-- 앱 -->
 
-    <div class="icon" id="messages" onclick="openWindow('messageWindow')">
-        <img src="https://img.icons8.com/color/96/chat--v1.png">
-        <span>Messages</span>
-    </div>
+<div class="apps">
 
-    <div class="icon" id="photos" onclick="openWindow('photoWindow')">
-        <img src="https://img.icons8.com/color/96/pictures-folder.png">
-        <span>Photos</span>
-    </div>
 
-    <div class="icon" id="notes" onclick="openWindow('noteWindow')">
-        <img src="https://img.icons8.com/color/96/notepad.png">
-        <span>Notes</span>
-    </div>
+<div class="app" onclick="openApp('message')">
 
-    <div class="icon" id="documents" onclick="openWindow('documentWindow')">
-        <img src="https://img.icons8.com/color/96/documents.png">
-        <span>Documents</span>
-    </div>
+<div class="app-icon">
+💬
+</div>
 
-    <div class="icon" id="trash">
-        <img src="https://img.icons8.com/color/96/recycle-bin.png">
-        <span>Recycle Bin</span>
-    </div>
+<div class="app-name">
+Messages
+</div>
 
-    <!-- Browser -->
+</div>
 
-    <div class="window" id="browserWindow">
 
-        <div class="window-top">
 
-            Browser
+<div class="app" onclick="openApp('album')">
 
-            <div class="close" onclick="closeWindow('browserWindow')">
-                ✕
-            </div>
+<div class="app-icon">
+📷
+</div>
 
-        </div>
+<div class="app-name">
+Album
+</div>
 
-        <div class="window-content">
+</div>
 
-            <h2>Welcome.</h2>
 
-            <br>
 
-            <p>브라우저는 아직 준비 중...</p>
+<div class="app" onclick="openApp('browser')">
 
-        </div>
+<div class="app-icon">
+🌐
+</div>
 
-    </div>
+<div class="app-name">
+Browser
+</div>
 
-    <!-- Messages -->
+</div>
 
-    <div class="window" id="messageWindow">
 
-        <div class="window-top">
 
-            Messages
+<div class="app" onclick="openApp('files')">
 
-            <div class="close" onclick="closeWindow('messageWindow')">
-                ✕
-            </div>
+<div class="app-icon">
+📁
+</div>
 
-        </div>
+<div class="app-name">
+Files
+</div>
 
-        <div class="window-content">
+</div>
 
-            <h3>❤️ 츠바키군</h3>
 
-            <br>
+</div>
 
-            <p>오늘도 조심해서 와.</p>
 
-        </div>
 
-    </div>
 
-    <!-- Photos -->
 
-    <div class="window" id="photoWindow">
+<!-- 메시지 창 -->
 
-        <div class="window-top">
+<div class="window" id="message">
 
-            Photos
 
-            <div class="close" onclick="closeWindow('photoWindow')">
-                ✕
-            </div>
+<div class="window-title">
 
-        </div>
+Messages
 
-        <div class="window-content">
+<span class="close" onclick="closeApp('message')">
+✕
+</span>
 
-            사진이 없습니다.
+</div>
 
-        </div>
 
-    </div>
+<div class="window-content">
 
-    <!-- Notes -->
+아직 메시지가 없습니다.
 
-    <div class="window" id="noteWindow">
+</div>
 
-        <div class="window-top">
 
-            Notes
+</div>
 
-            <div class="close" onclick="closeWindow('noteWindow')">
-                ✕
 
-            </div>
 
-        </div>
 
-        <div class="window-content">
+<!-- 사진첩 -->
 
-□ 장보기
+<div class="window" id="album">
 
-<br><br>
 
-□ 츠바키군 만나기
+<div class="window-title">
 
-        </div>
+Album
 
-    </div>
+<span class="close" onclick="closeApp('album')">
+✕
+</span>
+
+</div>
+
+
+<div class="window-content">
+
+사진첩
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- 브라우저 -->
+
+<div class="window" id="browser">
+
+
+<div class="window-title">
+
+Browser
+
+<span class="close" onclick="closeApp('browser')">
+✕
+</span>
+
+</div>
+
+
+<div class="window-content">
+
+인터넷
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- 파일 -->
+
+<div class="window" id="files">
+
+
+<div class="window-title">
+
+Files
+
+<span class="close" onclick="closeApp('files')">
+✕
+</span>
+
+</div>
+
+
+<div class="window-content">
+
+폴더
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="taskbar">
+
+🪟 Personal Computer
+
+</div>
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+function openApp(id){
+
+document.getElementById(id).style.display="block";
+
+}
+
+
+
+function closeApp(id){
+
+document.getElementById(id).style.display="none";
+
+}
+
+
+</script>
+
+
+</body>
+</html>
