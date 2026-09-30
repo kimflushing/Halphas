@@ -19,84 +19,268 @@
 <div class="desktop">
 
 
+<!-- 앱 아이콘 -->
+
 <div class="icon-area">
 
 
-<div class="icon" onclick="openApp('apps/messages.html')">
+<div class="icon" onclick="openApp('messages')">
 
-<div class="icon-image">
-💬
+<div class="icon-img">💬</div>
+
+<span>Messages</span>
+
 </div>
 
-<span>
+
+
+<div class="icon" onclick="openApp('album')">
+
+<div class="icon-img">📷</div>
+
+<span>Album</span>
+
+</div>
+
+
+
+<div class="icon" onclick="openApp('browser')">
+
+<div class="icon-img">🌐</div>
+
+<span>Browser</span>
+
+</div>
+
+
+
+<div class="icon" onclick="openApp('files')">
+
+<div class="icon-img">📁</div>
+
+<span>Files</span>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<!-- 날씨 위젯 -->
+
+
+<div class="widget weather">
+
+<h3>Hong Kong</h3>
+
+<strong>18°</strong>
+
+<p>
+Wednesday<br>
+September 30
+</p>
+
+</div>
+
+
+
+
+
+<!-- 사진 액자 -->
+
+
+<div class="photo-frame">
+
+<img src="img/couple.jpg">
+
+<p>
+Memory
+</p>
+
+</div>
+
+
+
+
+
+<!-- 메모 -->
+
+
+<div class="widget memo">
+
+<h3>Notes</h3>
+
+<p>□ Flowers</p>
+
+<p>□ Dinner</p>
+
+<p>□ Tsubaki</p>
+
+</div>
+
+
+
+
+
+<!-- 최근 파일 -->
+
+
+<div class="widget recent">
+
+<h3>Recent</h3>
+
+<p>📄 diary.txt</p>
+
+<p>📷 hongkong.jpg</p>
+
+<p>🎵 playlist.mp3</p>
+
+</div>
+
+
+
+
+
+<!-- 앱 창 -->
+
+
+<div class="window" id="messages">
+
+<div class="window-head">
+
 Messages
-</span>
+
+<button onclick="closeApp('messages')">
+✕
+</button>
+
+</div>
+
+
+<div class="window-body">
+
+준비 중
+
+</div>
 
 </div>
 
 
 
-<div class="icon" onclick="openApp('apps/album.html')">
 
-<div class="icon-image">
-📷
-</div>
 
-<span>
+<div class="window" id="album">
+
+<div class="window-head">
+
 Album
-</span>
+
+<button onclick="closeApp('album')">
+✕
+</button>
+
+</div>
+
+
+<div class="window-body">
+
+사진첩
+
+</div>
 
 </div>
 
 
 
 
-<div class="icon" onclick="openApp('apps/browser.html')">
 
-<div class="icon-image">
-🌐
-</div>
+<div class="window" id="browser">
 
-<span>
+<div class="window-head">
+
 Browser
-</span>
+
+<button onclick="closeApp('browser')">
+✕
+</button>
+
+</div>
+
+
+<div class="window-body">
+
+Browser
+
+</div>
 
 </div>
 
 
 
 
-<div class="icon" onclick="openApp('apps/files.html')">
 
-<div class="icon-image">
-📁
-</div>
+<div class="window" id="files">
 
-<span>
+<div class="window-head">
+
 Files
-</span>
+
+<button onclick="closeApp('files')">
+✕
+</button>
+
+</div>
+
+
+<div class="window-body">
+
+Files
+
+</div>
 
 </div>
 
 
 
-</div>
 
+
+<!-- 작업표시줄 -->
 
 
 <div class="taskbar">
 
-<div>
-🪟
+
+<div class="start">
+
+⊞
+
+</div>
+
+
+<div class="pinned">
+
+🔍
+💬
+🌐
+📁
+
 </div>
 
 
 <div id="clock">
+
 00:00
+
 </div>
 
 
 </div>
+
+
 
 
 </div>
