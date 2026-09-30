@@ -1,0 +1,413 @@
+/* =========================
+   기본 설정
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI","Noto Sans KR",sans-serif;
+}
+
+
+body{
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+
+
+/* =========================
+   바탕화면
+========================= */
+
+
+.desktop{
+
+    width:100vw;
+    height:100vh;
+
+    /* 원하는 배경 넣기 */
+    background-image:url("../img/wallpaper.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    position:relative;
+
+}
+
+
+
+/* 배경 어둡게 */
+
+.desktop::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,0.15);
+
+    pointer-events:none;
+
+}
+
+
+
+/* =========================
+   아이콘 영역
+========================= */
+
+
+.icon-area{
+
+    position:absolute;
+
+    top:25px;
+
+    left:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+    z-index:2;
+
+}
+
+
+
+
+.icon{
+
+    width:80px;
+
+    text-align:center;
+
+    color:white;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    text-shadow:
+    0 2px 5px black;
+
+}
+
+
+
+.icon:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+.icon-image{
+
+    width:55px;
+
+    height:55px;
+
+    margin:auto;
+
+    border-radius:14px;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    font-size:30px;
+
+
+    background:rgba(255,255,255,0.18);
+
+    backdrop-filter:blur(10px);
+
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.3);
+
+
+}
+
+
+
+.icon span{
+
+    display:block;
+
+    margin-top:8px;
+
+    font-size:13px;
+
+}
+
+
+
+/* =========================
+   작업표시줄
+========================= */
+
+
+.taskbar{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+
+    width:100%;
+
+    height:55px;
+
+
+    background:
+
+    rgba(30,30,30,0.75);
+
+
+    backdrop-filter:blur(15px);
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    padding:0 20px;
+
+
+    color:white;
+
+
+    z-index:5;
+
+
+    border-top:
+
+    1px solid rgba(255,255,255,0.15);
+
+}
+
+
+
+#clock{
+
+    font-size:14px;
+
+}
+
+
+
+/* =========================
+   앱 창
+   (나중에 iframe용)
+========================= */
+
+
+.app-window{
+
+
+    position:absolute;
+
+
+    width:90%;
+
+    max-width:500px;
+
+
+    height:70%;
+
+
+    left:50%;
+
+    top:50%;
+
+
+    transform:
+
+    translate(-50%,-50%);
+
+
+
+    background:white;
+
+
+    border-radius:18px;
+
+
+    overflow:hidden;
+
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,0.5);
+
+
+
+}
+
+
+
+/* 창 제목 */
+
+.window-header{
+
+
+    height:45px;
+
+
+    background:#f2f2f2;
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    padding:0 15px;
+
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+.window-buttons{
+
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+
+
+.window-buttons span{
+
+
+    width:13px;
+
+    height:13px;
+
+    border-radius:50%;
+
+
+}
+
+
+
+.close{
+
+    background:#ff5f57;
+
+}
+
+
+
+.min{
+
+    background:#febc2e;
+
+}
+
+
+
+.max{
+
+    background:#28c840;
+
+}
+
+
+
+/* 창 내용 */
+
+
+.window-content{
+
+    height:calc(100% - 45px);
+
+    overflow:auto;
+
+}
+
+
+
+/* =========================
+   모바일 대응
+========================= */
+
+
+@media(max-width:600px){
+
+
+    .icon-area{
+
+        top:20px;
+
+        left:15px;
+
+        gap:20px;
+
+    }
+
+
+    .icon{
+
+        width:70px;
+
+    }
+
+
+    .icon-image{
+
+        width:50px;
+
+        height:50px;
+
+        font-size:26px;
+
+    }
+
+
+    .taskbar{
+
+        height:50px;
+
+        padding:0 15px;
+
+    }
+
+
+
+}
