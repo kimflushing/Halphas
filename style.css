@@ -1,395 +1,467 @@
-/* 전체 설정 */
+/* =========================
+RESET
+========================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"Segoe UI","Noto Sans KR",sans-serif;
+    user-select:none;
+    font-family:"Segoe UI",sans-serif;
 }
 
-
+html,
 body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#111;
+}
 
-    width:100vw;
-    height:100vh;
+/* =========================
+BOOT
+========================= */
+
+#bootScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#050505;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+    color:white;
+
+}
+
+.boot-logo{
+
+    text-align:center;
+
+}
+
+.boot-logo h1{
+
+    font-size:58px;
+
+    letter-spacing:8px;
+
+    font-weight:300;
+
+}
+
+.boot-logo p{
+
+    margin-top:15px;
+
+    color:#777;
+
+}
+
+.loader{
+
+    width:220px;
+
+    height:4px;
+
+    background:#1f1f1f;
+
+    border-radius:20px;
+
+    margin-top:40px;
 
     overflow:hidden;
 
 }
 
+.loader div{
 
-
-/* =====================
-   로그인 화면
-===================== */
-
-
-.login-screen{
-
-    width:100%;
-    height:100%;
-
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
-    background:
-
-    linear-gradient(
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.65)
-    ),
-
-    url("../img/wallpaper.jpg");
-
-
-    background-size:cover;
-
-    background-position:center;
-
-}
-
-
-
-
-.login-card{
-
-
-    width:340px;
-
-
-    padding:45px 35px;
-
-
-    text-align:center;
-
-
-    color:white;
-
-
-    background:
-
-    rgba(255,255,255,.12);
-
-
-    backdrop-filter:blur(25px);
-
-
-    border-radius:25px;
-
-
-    border:
-
-    1px solid rgba(255,255,255,.2);
-
-
-    box-shadow:
-
-    0 20px 60px rgba(0,0,0,.5);
-
-
-}
-
-
-
-
-/* 프로필 */
-
-
-.profile-circle{
-
-
-    width:110px;
-
-    height:110px;
-
-
-    margin:0 auto 20px;
-
-
-    border-radius:50%;
-
-
-    background:
-
-    rgba(255,255,255,.2);
-
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
-    font-size:60px;
-
-
-}
-
-
-
-.login-card h1{
-
-    font-size:25px;
-
-    margin-bottom:8px;
-
-}
-
-
-
-.login-card h2{
-
-    font-size:16px;
-
-    font-weight:400;
-
-    opacity:.8;
-
-}
-
-
-
-.online{
-
-    margin-top:15px;
-
-    color:#7dff9a;
-
-    font-size:13px;
-
-}
-
-
-
-
-/* 비밀번호 */
-
-
-.login-card input{
-
-
-    margin-top:30px;
-
-
-    width:100%;
-
-
-    height:45px;
-
-
-    border-radius:15px;
-
-
-    border:
-
-    1px solid rgba(255,255,255,.3);
-
-
-    background:
-
-    rgba(0,0,0,.3);
-
-
-    color:white;
-
-
-    padding:0 15px;
-
-
-    font-size:15px;
-
-
-}
-
-
-
-.login-card input::placeholder{
-
-    color:#ddd;
-
-}
-
-
-
-
-/* 버튼 */
-
-
-.login-card button{
-
-
-    margin-top:15px;
-
-
-    width:100%;
-
-
-    height:45px;
-
-
-    border:none;
-
-
-    border-radius:15px;
-
-
-    cursor:pointer;
-
-
-    font-size:15px;
-
-
-}
-
-
-
-
-
-.last{
-
-
-    margin-top:25px;
-
-
-    font-size:12px;
-
-
-    opacity:.6;
-
-
-    line-height:1.6;
-
-
-}
-
-
-
-
-
-/* =====================
-   컴퓨터 화면
-===================== */
-
-
-.computer{
-
-
-    width:100%;
+    width:0%;
 
     height:100%;
 
+    background:#ffffff;
 
-    position:relative;
-
-
-    background:
-
-    url("../img/wallpaper.jpg");
-
-
-    background-size:cover;
-
+    animation:loading 2.5s linear forwards;
 
 }
 
+@keyframes loading{
 
+0%{
+width:0%;
+}
 
-
-.desktop-icon{
-
-
-    position:relative;
-
-
-    top:30px;
-
-    left:30px;
-
-
-    width:80px;
-
-
-    color:white;
-
-
-    text-align:center;
-
-
-    font-size:35px;
-
-
-    text-shadow:
-
-    0 2px 5px black;
-
+100%{
+width:100%;
+}
 
 }
 
+/* =========================
+LOGIN
+========================= */
 
+#loginScreen{
 
-.desktop-icon span{
+display:none;
 
+position:fixed;
 
-    display:block;
+inset:0;
 
+background:url("https://picsum.photos/1920/1080") center/cover;
 
-    font-size:13px;
+justify-content:center;
 
+align-items:center;
 
 }
 
+.login-box{
 
+width:360px;
 
+padding:40px;
 
+border-radius:20px;
 
-/* 작업표시줄 */
+backdrop-filter:blur(20px);
 
+background:rgba(0,0,0,.45);
 
-.taskbar{
+display:flex;
 
+flex-direction:column;
 
-    position:absolute;
+align-items:center;
 
+box-shadow:0 0 40px rgba(0,0,0,.4);
 
-    bottom:0;
+}
 
+#profile{
 
-    left:0;
+width:120px;
 
+height:120px;
 
-    width:100%;
+border-radius:50%;
 
+margin-bottom:25px;
 
-    height:55px;
+}
 
+.login-box h2{
 
-    background:
+color:white;
 
-    rgba(20,20,20,.8);
+font-weight:300;
 
+margin-bottom:20px;
 
-    backdrop-filter:blur(15px);
+}
 
+#password{
 
-    display:flex;
+width:100%;
 
+padding:14px;
 
-    justify-content:space-between;
+border:none;
 
+outline:none;
 
-    align-items:center;
+border-radius:12px;
 
+margin-bottom:15px;
 
-    padding:0 20px;
+background:rgba(255,255,255,.1);
 
+color:white;
 
-    color:white;
+font-size:15px;
 
+}
+
+#password::placeholder{
+
+color:#bbb;
+
+}
+
+#loginBtn{
+
+width:100%;
+
+padding:14px;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-size:15px;
+
+background:white;
+
+transition:.25s;
+
+}
+
+#loginBtn:hover{
+
+transform:scale(1.03);
+
+}
+
+#loginError{
+
+height:20px;
+
+margin-top:10px;
+
+color:#ff6666;
+
+font-size:14px;
+
+}
+
+/* =========================
+DESKTOP
+========================= */
+
+#desktop{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+background:url("https://picsum.photos/1920/1080?2") center/cover;
+
+overflow:hidden;
+
+}
+
+#desktopIcons{
+
+padding:20px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.icon{
+
+width:90px;
+
+padding:12px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:12px;
+
+cursor:pointer;
+
+transition:.2s;
+
+color:white;
+
+font-size:38px;
+
+}
+
+.icon span{
+
+font-size:13px;
+
+margin-top:8px;
+
+text-align:center;
+
+}
+
+.icon:hover{
+
+background:rgba(255,255,255,.15);
+
+}
+
+/* =========================
+TASKBAR
+========================= */
+
+#taskbar{
+
+position:absolute;
+
+left:0;
+
+right:0;
+
+bottom:0;
+
+height:58px;
+
+display:flex;
+
+align-items:center;
+
+padding:0 15px;
+
+background:rgba(20,20,20,.65);
+
+backdrop-filter:blur(25px);
+
+}
+
+#startButton{
+
+width:42px;
+
+height:42px;
+
+border-radius:10px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:20px;
+
+cursor:pointer;
+
+color:white;
+
+transition:.2s;
+
+}
+
+#startButton:hover{
+
+background:rgba(255,255,255,.1);
+
+}
+
+#taskApps{
+
+flex:1;
+
+display:flex;
+
+gap:10px;
+
+margin-left:20px;
+
+}
+
+#clock{
+
+width:90px;
+
+text-align:center;
+
+font-size:15px;
+
+color:white;
+
+}
+
+/* =========================
+START MENU
+========================= */
+
+#startMenu{
+
+position:absolute;
+
+left:15px;
+
+bottom:70px;
+
+width:250px;
+
+padding:15px;
+
+border-radius:18px;
+
+background:rgba(30,30,30,.9);
+
+backdrop-filter:blur(20px);
+
+display:none;
+
+}
+
+#startMenu button{
+
+width:100%;
+
+margin-bottom:8px;
+
+padding:12px;
+
+border:none;
+
+border-radius:10px;
+
+background:#3a3a3a;
+
+color:white;
+
+cursor:pointer;
+
+transition:.2s;
+
+text-align:left;
+
+}
+
+#startMenu button:hover{
+
+background:#565656;
+
+}
+
+#startMenu button:last-child{
+
+margin-bottom:0;
+
+}
+
+/* =========================
+WINDOW AREA
+========================= */
+
+#windows{
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
 
 }
