@@ -244,4 +244,132 @@ function createWindow(title, content){
 
     return win;
 
+}function dragWindow(win){
+
+    const bar = win.querySelector(".titlebar");
+
+    let move = false;
+
+    let x = 0;
+
+    let y = 0;
+
+    bar.onmousedown = (e)=>{
+
+        move = true;
+
+        activateWindow(win);
+
+        x = e.clientX - win.offsetLeft;
+
+        y = e.clientY - win.offsetTop;
+
+    };
+
+    document.onmouseup = ()=>{
+
+        move = false;
+
+    };
+
+    document.onmousemove = (e)=>{
+
+        if(!move) return;
+
+        win.style.left = (e.clientX-x)+"px";
+
+        win.style.top = (e.clientY-y)+"px";
+
+    };
+
 }
+function activateWindow(win){
+
+    win.addEventListener("mousedown",()=>{
+
+        highestZ++;
+
+        win.style.zIndex = highestZ;
+
+    });
+
+}
+function setupButtons(win){
+
+    const close = win.querySelector(".closeBtn");
+
+    const max = win.querySelector(".maxBtn");
+
+    const min = win.querySelector(".minBtn");
+
+    let maximized = false;
+
+    close.onclick = ()=>{
+
+        win.remove();
+
+    };
+
+    max.onclick = ()=>{
+
+        if(!maximized){
+
+            win.dataset.left = win.style.left;
+
+            win.dataset.top = win.style.top;
+
+            win.dataset.width = win.style.width;
+
+            win.dataset.height = win.style.height;
+
+            win.style.left="0";
+
+            win.style.top="0";
+
+            win.style.width="100%";
+
+            win.style.height="calc(100% - 58px)";
+
+            maximized=true;
+
+        }
+
+        else{
+
+            win.style.left=win.dataset.left;
+
+            win.style.top=win.dataset.top;
+
+            win.style.width=win.dataset.width;
+
+            win.style.height=win.dataset.height;
+
+            maximized=false;
+
+        }
+
+    };
+
+    min.onclick=()=>{
+
+        win.style.display="none";
+
+    };
+
+}
+document.querySelectorAll(".icon").forEach(icon=>{
+
+    icon.addEventListener("dblclick",()=>{
+
+        createWindow(
+
+            icon.innerText,
+
+            "<h2>앱 준비중...</h2><p>이 창은 정상적으로 생성되었습니다.</p>"
+
+        );
+
+    });
+
+});
+
