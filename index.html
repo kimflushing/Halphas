@@ -1,139 +1,141 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Character OS</title>
+<title>FakeOS</title>
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
-
-
 <body>
 
+<!-- =========================
+부팅화면
+========================= -->
 
-<!-- 로그인 화면 -->
+<div id="bootScreen">
 
-<div class="login-screen">
+    <div class="boot-logo">
+        <h1>FAKE OS</h1>
+        <p>Loading...</p>
 
-
-    <div class="login-card">
-
-
-        <div class="profile-circle">
-            🌺
+        <div class="loader">
+            <div></div>
         </div>
 
+    </div>
 
-        <h1>
-            Character OS
-        </h1>
+</div>
 
+<!-- =========================
+로그인
+========================= -->
 
-        <h2>
-            Fujimoto PC
-        </h2>
+<div id="loginScreen">
 
+    <div class="login-box">
 
-        <p class="online">
-            ● Online
-        </p>
+        <img src="https://picsum.photos/150" id="profile">
 
+        <h2>User</h2>
 
-        <input 
+        <input
         type="password"
+        id="password"
         placeholder="Password">
 
-
-        <button onclick="enterPC()">
-            Enter
+        <button id="loginBtn">
+            로그인
         </button>
 
-
-        <div class="last">
-
-            Last login<br>
-            Hong Kong<br>
-            22:31
-
-        </div>
-
+        <p id="loginError"></p>
 
     </div>
-
 
 </div>
 
+<!-- =========================
+Desktop
+========================= -->
 
+<div id="desktop">
 
+<div id="desktopIcons">
 
-<!-- 컴퓨터 화면 -->
+<div class="icon" data-app="notepad">
+📄
+<span>메모장</span>
+</div>
 
+<div class="icon" data-app="explorer">
+📁
+<span>파일 탐색기</span>
+</div>
 
-<div class="computer" style="display:none;">
+<div class="icon" data-app="settings">
+⚙️
+<span>설정</span>
+</div>
 
-
-    <div class="desktop-icon">
-
-        💬
-        <span>
-            Messages
-        </span>
-
-    </div>
-
-
-    <div class="desktop-icon">
-
-        📷
-        <span>
-            Photos
-        </span>
-
-    </div>
-
-
-    <div class="desktop-icon">
-
-        📁
-        <span>
-            Files
-        </span>
-
-    </div>
-
-
-
-    <div class="taskbar">
-
-
-        <div>
-            ⊞
-        </div>
-
-
-        <div>
-            💬 🌐 📁
-        </div>
-
-
-        <div id="clock">
-            00:00
-        </div>
-
-
-    </div>
-
+<div class="icon" data-app="player">
+🎵
+<span>음악</span>
+</div>
 
 </div>
 
+<!-- 창 생성 위치 -->
 
+<div id="windows"></div>
 
-<script src="js/script.js"></script>
+<!-- 작업표시줄 -->
+
+<div id="taskbar">
+
+<div id="startButton">
+☰
+</div>
+
+<div id="taskApps">
+</div>
+
+<div id="clock">
+00:00
+</div>
+
+</div>
+
+<!-- 시작 메뉴 -->
+
+<div id="startMenu">
+
+<button id="openExplorer">
+📁 파일 탐색기
+</button>
+
+<button id="openNotepad">
+📄 메모장
+</button>
+
+<button id="openSettings">
+⚙ 설정
+</button>
+
+<button id="shutdown">
+⏻ 종료
+</button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
 
 
 </body>
