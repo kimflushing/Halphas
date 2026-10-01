@@ -1,29 +1,190 @@
-function enterPC(){
+/* =====================================
+FAKE OS
+script.js
+===================================== */
 
-    document.querySelector(".login-screen").style.display="none";
+const bootScreen = document.getElementById("bootScreen");
+const loginScreen = document.getElementById("loginScreen");
+const desktop = document.getElementById("desktop");
 
-    document.querySelector(".computer").style.display="block";
+const passwordInput = document.getElementById("password");
+const loginBtn = document.getElementById("loginBtn");
+const loginError = document.getElementById("loginError");
+
+const startButton = document.getElementById("startButton");
+const startMenu = document.getElementById("startMenu");
+
+const clock = document.getElementById("clock");
+
+const shutdownBtn = document.getElementById("shutdown");
+
+/* ===========================
+비밀번호
+=========================== */
+
+if(localStorage.getItem("osPassword") === null){
+
+    localStorage.setItem("osPassword","1234");
 
 }
 
+/* ===========================
+부팅
+=========================== */
 
+window.addEventListener("load",()=>{
 
-function clock(){
+    setTimeout(()=>{
 
-    let now = new Date();
+        bootScreen.style.display="none";
 
+        loginScreen.style.display="flex";
 
-    let h = String(now.getHours()).padStart(2,"0");
+    },2600);
 
-    let m = String(now.getMinutes()).padStart(2,"0");
+});
 
+/* ===========================
+로그인
+=========================== */
 
-    document.getElementById("clock").innerText = h + ":" + m;
+function login(){
+
+    const savedPassword = localStorage.getItem("osPassword");
+
+    if(passwordInput.value===savedPassword){
+
+        loginScreen.style.display="none";
+
+        desktop.style.display="block";
+
+        passwordInput.value="";
+
+        loginError.textContent="";
+
+    }
+
+    else{
+
+        loginError.textContent="비밀번호가 올바르지 않습니다.";
+
+        passwordInput.value="";
+
+    }
 
 }
 
+loginBtn.onclick=login;
 
+passwordInput.addEventListener("keydown",(e)=>{
 
-setInterval(clock,1000);
+    if(e.key==="Enter"){
 
-clock();
+        login();
+
+    }
+
+});
+
+/* ===========================
+시계
+=========================== */
+
+function updateClock(){
+
+    const now=new Date();
+
+    let h=String(now.getHours()).padStart(2,"0");
+    let m=String(now.getMinutes()).padStart(2,"0");
+
+    clock.textContent=h+":"+m;
+
+}
+
+updateClock();
+
+setInterval(updateClock,1000);
+
+/* ===========================
+시작메뉴
+=========================== */
+
+startButton.onclick=()=>{
+
+    if(startMenu.style.display==="block"){
+
+        startMenu.style.display="none";
+
+    }
+
+    else{
+
+        startMenu.style.display="block";
+
+    }
+
+};
+
+document.addEventListener("click",(e)=>{
+
+    if(
+
+        !startMenu.contains(e.target)
+
+        &&
+
+        !startButton.contains(e.target)
+
+    ){
+
+        startMenu.style.display="none";
+
+    }
+
+});
+
+/* ===========================
+종료
+=========================== */
+
+shutdownBtn.onclick=()=>{
+
+    desktop.style.display="none";
+
+    bootScreen.style.display="flex";
+
+    startMenu.style.display="none";
+
+    setTimeout(()=>{
+
+        bootScreen.style.display="none";
+
+        loginScreen.style.display="flex";
+
+    },2500);
+
+};
+
+/* ===========================
+자동저장 준비
+=========================== */
+
+function save(key,value){
+
+    localStorage.setItem(key,JSON.stringify(value));
+
+}
+
+function load(key,defaultValue){
+
+    const data=localStorage.getItem(key);
+
+    if(data===null){
+
+        return defaultValue;
+
+    }
+
+    return JSON.parse(data);
+
+}
