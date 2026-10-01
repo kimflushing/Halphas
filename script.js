@@ -188,3 +188,60 @@ function load(key,defaultValue){
     return JSON.parse(data);
 
 }
+/* =====================================
+WINDOW ENGINE
+===================================== */
+
+const windows = document.getElementById("windows");
+
+let highestZ = 100;
+
+/* 창 생성 */
+
+function createWindow(title, content){
+
+    highestZ++;
+
+    const win = document.createElement("div");
+
+    win.className = "window";
+
+    win.style.zIndex = highestZ;
+
+    win.innerHTML =
+
+    `
+    <div class="titlebar">
+
+        <div class="window-title">${title}</div>
+
+        <div class="window-buttons">
+
+            <button class="minBtn">─</button>
+
+            <button class="maxBtn">□</button>
+
+            <button class="closeBtn">✕</button>
+
+        </div>
+
+    </div>
+
+    <div class="window-content">
+
+        ${content}
+
+    </div>
+    `;
+
+    windows.appendChild(win);
+
+    dragWindow(win);
+
+    activateWindow(win);
+
+    setupButtons(win);
+
+    return win;
+
+}
